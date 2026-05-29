@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> To Do List</title>
+        <style>
+            body{ font-family: sans-serif; display: flex; justify-content: center; padding: 20px; background-color: #f4f4f9;}
+            .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10 px rgba(0,0,0,0.1); width: 100%; max-width:400px;}
+            input { width: 70%; padding: 8px; }
+            button { padding: 8px; cursor: pointer; }
+            ul { list-style: none; padding: 0;}
+            li { background: #eee; margin : 5px 0; padding: 10px; display: flex; justify-content: space-between;}
+        </style>
+    </head>
+    <body>
+
+        <div class="container">
+            <h2>Obiettivi</h2>
+            <input type="text" id="taskInput" placeholder="Cosa c'è da fare?">
+            <button onclick="addTask()">Aggiungi</button>
+            <ul id="taskList"></ul>
+        </div>
+
+        <script>
+            function addTask(){
+                let input = document.getElementById("taskInput");
+                let ul = document.getElementById("taskList");
+                if(input.value === "") return;
+
+                let li = document.ceateElement("li");
+                li.innerHTML = input.value +'<button onclick="this.parentElement.remove()">X</button>';
+                ul.appendChild(li);
+                input.value ="";
+            }
+            
+        </script>
+    </body>
+</html>
